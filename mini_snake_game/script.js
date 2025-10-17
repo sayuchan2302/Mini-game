@@ -25,33 +25,54 @@ function controls() {
     if (game.pause) return ;
     for (let e of game.list) 
         $("." + e.x + "-" + e.y).removeClass("snake");
-    
+    let newHead = {x: game.list[0].x , y: game.list[0].y};
     switch(game.way) {
         case 0: {
             // right
-            game.list[0].y ++;
-            if (game.list[0].y >19) game.list[0].y = 0;
+            newHead.y ++;
+            if (newHead.y >19) newHead.y = 0;
             break ;
         }
         case 1: {
             //down
-            game.list[0].x ++;
-            if (game.list[0].x >19) game.list[0].x = 0;
+            newHead.x ++;
+            if (newHead.x >19) newHead.x = 0;
             break ;
         }
         case 2: {
             //left
-            game.list[0].y-- ;
-            if (game.list[0].y <0) game.list[0].y = 19;
+            newHead.y --;
+            if (newHead.y <0) newHead.y = 19;
             break ;
         }
         default:{
-            
-            game.list[0].x --;
-            if (game.list[0].x <0) game.list[0].x = 19;
+            newHead.x --;
+            if (newHead.x <0) newHead.x = 19;
             break;
         }
     }
+    if (game.list.some(e => e.x == newHead.x && e.y == newHead.y)) {
+        alert(`Game Over! Your score: ${game.score}`);
+        game.list= [{x: Math.floor(Math.random() * 20) , y: Math.floor(Math.random() * 20)}];
+        game.score = 0; 
+        $("#score").text("Score: " + game.score);
+        game.way = 0;
+        $("." + game.food.x + "-" + game.food.y).removeClass("food");
+        createFood();
+        return ;
+    }
+    game.list.unshift(newHead);
+
+    //check eat food
+    if (game.food.x == newHead.x && game.food.y == newHead.y) {
+        game.score ++ ;
+        $("#score").text("Score: " + game.score);
+        $("." + game.food.x + "-" + game.food.y).removeClass("food");
+        createFood();
+    }else {
+        game.list.pop();
+    }
+
 
      for (let e of game.list) 
         $("." + e.x + "-" + e.y).addClass("snake");

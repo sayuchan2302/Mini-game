@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#game-board {
+    border: 1px solid black;
+}
+.snake {
+    background-color: red;
+}
+tr {
+    height: 30px;
+    
+}
+tr td {
+    width: 30px;
+}

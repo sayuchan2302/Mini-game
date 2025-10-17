@@ -1,4 +1,4 @@
-var game = {list:[] , way : 0};
+var game = {list:[] , way : 0 , pause: false , score : 0 , food : null};
 
 function createGameBoard() {
     let board = $('#game-board');
@@ -19,8 +19,10 @@ function createGameBoard() {
     
     console.log(i , j);
     $("." + i + "-" + j).addClass("snake");
+
 }
 function controls() {
+    if (game.pause) return ;
     for (let e of game.list) 
         $("." + e.x + "-" + e.y).removeClass("snake");
     
@@ -55,8 +57,21 @@ function controls() {
         $("." + e.x + "-" + e.y).addClass("snake");
 }
 
+
+function createFood() {
+    let foodx , foody ;
+    do {
+         foodx = Math.floor(Math.random() * 20);
+    foody = Math.floor(Math.random() * 20);
+    console.log("food " + foodx , foody);
+    }while (game.list.some(e => e.x == foodx  && e.y == foody));
+    game.food = {x: foodx , y: foody};
+    $("." + foodx + "-" + foody).addClass("food");
+    }
+
 $(document).ready(function() {
     createGameBoard();
+    createFood();
     setInterval(() => {
        controls();
     }, 300);

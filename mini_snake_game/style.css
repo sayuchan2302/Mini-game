@@ -21,12 +21,26 @@ tr {
 .food {
     background-color: green;
 }
+.wall {
+    background-color: gray;
+}
 tr td {
     width: 30px;
 }
-#score {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-    color : green;
+#info-panel {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
 }
+#score {
+font-size: 24px;
+color: green;
+}
+#target {
+font-size: 24px;
+color: red;
+}
+#level {
+    font-size: 24px;
+    color: purple;
+}   

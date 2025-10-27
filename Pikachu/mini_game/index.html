@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="./style.css">
+    <title>Pikachu-game</title>
+</head>
+<body>
+    <div class="select-level">
+        <button class="level" data-level="1">Level 1</button>
+        <button class="level" data-level="2">Level 2</button>
+        <button class="level" data-level="3">Level 3</button>
+        <button class="level" data-level="4">Level 4</button>
+        <button class="level" data-level="5">Level 5</button>
+        <button class="level" data-level="6">Level 6</button>
+    </div>
+    <div id="main">
+        <div id="nav">
+            <p>Score: <span id="score">0</span></p>
+            <p>Time: <span id="time">60</span>s</p>
+            <p>Level: <span id="level">1</span></p>
+        </div>
+       <table id="board-game"  ></table> 
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>

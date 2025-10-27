@@ -1,0 +1,31 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#board-game {
+    border: 1px solid black;
+}
+td , tr {
+    border : 1px solid black;
+    width: 50px;
+    height: 50px;
+}
+img.selected {
+  border: 2px solid yellow;
+  box-shadow: 0 0 10px gold;
+}
+#nav {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+.select-level {
+    margin : 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

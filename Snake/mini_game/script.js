@@ -128,16 +128,19 @@ function controls() {
             break;
         }
     }
+
+    // check va cham than ran
     if (game.list.some(e => e.x == newHead.x && e.y == newHead.y)) {
-        alert(`Game Over! Your score: ${game.score}`);
-        game.list= [{x: Math.floor(Math.random() * 20) , y: Math.floor(Math.random() * 20)}];
-        game.score = 0; 
-        $("#score").text("Score: " + game.score);
-        game.way = 0;
-        $("." + game.food.x + "-" + game.food.y).removeClass("food");
-        createFood();
-        return ;
+        alert("Game over!");
+        resetGame();
+        return;
     }
+    if (game.walls.some(e=> e.x == newHead.x && e.y == newHead.y)) {
+        alert("Game over!");
+        resetGame();
+        return;
+    }
+    // them dau moi 
     game.list.unshift(newHead);
 
     //check eat food
@@ -151,11 +154,6 @@ function controls() {
         game.list.pop();
     }
 
-    // check hit wall
-    if (game.walls.some(e=> e.x == newHead.x && e.y == newHead.y)) {
-        alert("Game over!");
-        resetGame();
-    }
      for (let e of game.list) 
         $("." + e.x + "-" + e.y).addClass("snake");
 }

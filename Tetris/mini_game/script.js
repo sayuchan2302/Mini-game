@@ -132,7 +132,12 @@ function startGame() {
             if (currentBrick.some(cell => board[cell.r][cell.c] === 1)) {
                 clearInterval(gameInterval);
                 alert("Game Over! Final Score: " + score);
-                return;
+                board = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
+                score = 0;
+                $("#score").text("Score : 0");
+                $("#game-board").empty();
+                createGameBoard();
+                startGame();
             }
         } else {
             moveDown(currentBrick);

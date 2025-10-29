@@ -8,12 +8,12 @@ const game = {
     gameBoard: []
 }
 const levels = [
-    { level: 1, row: 4, col: 6, time: 200 },
-    { level: 2, row: 5, col: 6, time: 200 },
-    { level: 3, row: 6, col: 6, time: 200 },
-    { level: 4, row: 7, col: 6, time: 200 },
-    { level: 5, row: 8, col: 6, time: 200 },
-    { level: 6, row: 9, col: 6, time: 200 },
+    { level: 1, row: 4, col: 8, time: 200 },
+    { level: 2, row: 5, col: 10, time: 200 },
+    { level: 3, row: 6, col: 10, time: 200 },
+    { level: 4, row: 7, col: 10, time: 200 },
+    { level: 5, row: 8, col: 10, time: 200 },
+    { level: 6, row: 9, col: 10, time: 200 },
 ]
 function startLevel(num) {
     game.currentLevel = levels[num].level;
@@ -207,9 +207,9 @@ function findPath(r1, c1, r2, c2) {
 }
 
 $(document).ready(function () {
-    $(".level").on("click" , function() {
-    let levelNum = parseInt($(this).data("level")) -1;
-    startLevel(levelNum);
-})
+    $(".level").on("click", function () {
+        let levelNum = parseInt($(this).data("level")) - 1;
+        startLevel(levelNum);
+    })
     startLevel(0);
 });

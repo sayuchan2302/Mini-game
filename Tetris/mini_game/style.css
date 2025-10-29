@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#game-board {
+    border: 1px solid black;
+}
+#game board tr {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
+tr td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
+.brick {
+  background-color: #3498db;
+}
+.fixed {
+  background-color: #2ecc71;
+}

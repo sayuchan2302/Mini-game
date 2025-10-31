@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding : 0;
+}
+table {
+    border: 1px solid black;
+}
+td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+tr {
+    height: 20px;
+    border: 1px solid black;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#score {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    color : green ;
+}
+.ball {
+    background-color: red;
+    border-radius: 50%;
+}
+.paddle {
+    background-color: cyan;
+}
